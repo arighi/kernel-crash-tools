@@ -1,0 +1,2 @@
+#!/bin/bash
+crash $1 vmlinux
