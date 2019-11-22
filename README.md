@@ -8,6 +8,7 @@ and analyze it.
 Required tools / packages:
   - qemu
   - crash
+  - virtme
 
 # Example
 ```
@@ -58,4 +59,8 @@ NOTE: all the commands above should be executed from the kernel build directory
 (with a compiled vmlinux and all object files present).
 
 # See also
-http://arighi.blogspot.com/2019/08/kerneldebuggingusingqemu.html
+- virtme:
+  https://github.com/amluto/virtme
+
+- blog post about virtme:
+  http://arighi.blogspot.com/2019/08/kerneldebuggingusingqemu.html
