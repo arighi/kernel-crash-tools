@@ -10,22 +10,24 @@ Required tools / packages:
   - crash
 
 # Example
-
+```
  $ cd src/linux
  $ kernel-test
  ...
  virtme-init: console is ttyS0
  root@(none):/#
+```
 
 On another console session run kernel-dump to generate a crash dump:
-
+```
  $ cd src/linux
  $ kernel-dump /tmp/vmcore.img
  ...
 
+```
 
 Analyze the crash dump:
-
+```
  $ kernel-show /tmp/vmcore.img
  ...
 
@@ -50,6 +52,7 @@ Analyze the crash dump:
   #8 [ffffffff82603f28] x86_64_start_reservations at ffffffff82b4244c
   #9 [ffffffff82603f38] x86_64_start_kernel at ffffffff82b424c5
  #10 [ffffffff82603f50] secondary_startup_64 at ffffffff810000d4
+```
 
 NOTE: all the commands above should be executed from the kernel build directory
 (with a compiled vmlinux and all object files present).
