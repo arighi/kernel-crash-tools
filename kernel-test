@@ -1,2 +1,2 @@
 #!/bin/bash
-virtme-run --kdir . $* --mods auto -a "nokaslr" --net user --qemu-opts -m 1024 -smp 4 -s -qmp tcp:localhost:4444,server,nowait
+virtme-run --kdir . $* --mods auto -a "nokaslr" --net user --qemu-opts -m 4096 -smp 4 -s -qmp tcp:localhost:3636,server,nowait
