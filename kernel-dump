@@ -1,13 +1,21 @@
 #!/usr/bin/expect -f
 
 if { $argc < 1 } {
-	send_user "usage: kernel-dump vmcore.img\n"
-	exit
+    send_user "usage: kernel-dump vmcore.img\n"
+    exit
 }
 set out_file [lindex $argv 0]
 
-spawn telnet localhost 4444
+if !{[file exists vmlinux]} {
+    send_user "ERROR: could not find vmlinux in the current working directory\n"
+    exit
+}
+
+spawn rm -f $out_file
+spawn telnet localhost 3636
 send "{ \"execute\": \"qmp_capabilities\" }\r"
 expect "{\"return\": {}}"
 send "{\"execute\":\"dump-guest-memory\",\"arguments\":{\"paging\":false,\"protocol\":\"file:$out_file\"}}\r"
 expect "{\"return\": {}}"
+spawn crash $out_file vmlinux
+interact
